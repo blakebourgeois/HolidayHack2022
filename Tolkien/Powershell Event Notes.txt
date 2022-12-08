@@ -1,0 +1,37 @@
+search for lembanh
+search for mydiary.txt
+search for recipie
+
+What month/day/year did the attack take place? MM/dd/yyyy
+12/24/2022
+
+
+
+The contents of a file were retrieved and stored to a variable. What is the full line?
+$foo = Get-Content .\Recipe| % {$_ -replace 'honey', 'fish oil'}
+(via grep -ri '^\$')
+
+The attacher created a new file. What is the full line?
+
+$foo | Add-Content -Path 'Recipe.txt'
+
+What was the original file name
+Recipe.txt
+
+What is the new file name
+Recipe.txt (this...is broken)
+
+Were any files deleted?
+yes (remove-item)
+
+was the original file deleted?
+yes
+
+what event id when files were deleted?
+4104 - changed grep to add more context before and after remove-item entries; 4104: execute a remote command "creating scriptbox text (1 of 1): del .\Recipe.txt
+
+is the secret ingredient compromised?
+yes
+
+what is the secret ingredient?
+honey

@@ -1,0 +1,22 @@
+suricata.rules exist in home directory
+looking for Dridex IoCs
+need to catch DNS lookups for adv.epostoday.uk
+msg should be: Known bad DNS lookup, possible Dridex infection
+
+once added to suricata.rules, run ./rule_checker
+more rules will be requested...
+
+alert dns any any -> any any (msg:"Known bad DNS lookup, possible Dridex infection";dns.query;content:"adv.epostoday.uk";nocase;)
+
+second rule: alert when infected IP 192.185.57.242 communicates with internal systems over HTTP. msg: Investigate suspicious connections, possible Dridex infection
+
+alert http any any <> 192.185.57.242 any (msg:"Investigate suspicious connections, possible Dridex infection";sid:101010;) 
+# must append a unique SID or dup errors occur
+
+third rule: match on SSL cert for heardbellith.Icanwepeh.nagoya. msg: Investigate bad certificates, possible Dridex infection
+
+alert tls any any <> any any (msg:"Investigate bad certificates, possible Dridex infection";tls.cert_subject;content:"heardbellith.Icanwepeh.nagoya";sid:101011;)
+
+final rule: look for Javascript "let byteCharacters = atob" that is gzip compressed. alert msg: Suspicious javascript function, possible Dridex infection
+
+alert http any any <> any any (msg:"Suspicious JavaScript function, possible Dridex infection";file_data;content:"let byteCharacters = atob";sid:101012;)
