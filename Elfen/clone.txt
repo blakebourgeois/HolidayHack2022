@@ -1,0 +1,3 @@
+git clone https://haugfactory.com/asnowball/aws_scripts.git
+
+last word is "maintainers"

@@ -1,0 +1,20 @@
+################
+#
+# keybindings
+#
+
+#remove some stupid / dangerous key bindings
+bind k
+bind ^k
+bind .
+bind ^\
+bind \\
+bind ^h
+bind h
+#make them better
+bind 'K' kill
+bind 'I' login on
+bind 'O' login off
+bind '}' history
+
+https://serverfault.com/questions/194597/how-to-reload-screenrc-without-restarting-screen
