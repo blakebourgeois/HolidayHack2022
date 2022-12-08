@@ -1,0 +1,26 @@
+#Terminal
+1. What types of objects can be exported from the PCAP?
+HTTP
+(File > Export Objects > HTTP)
+
+2. Filename of largest object?
+app.php
+
+3. what packet number starts app.php?
+687
+
+4. IP of apache server?
+192.185.57.242
+
+5. what file is saved?
+Ref_Sept24-2020.zip (via the app.php code, saveas line 68
+
+6. What countries, in alphabetial order separated by commas, had bad TLS certificate registrations
+filter: x509if.RDNSequence_item == 1
+checked common names for legit/illegitimate traffic, ignore msft
+countryName=IL
+countryName=SS
+Israel
+South Sudan
+
+7. Is the host infected? 
