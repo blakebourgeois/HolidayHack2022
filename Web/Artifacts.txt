@@ -1,0 +1,11 @@
+Q: What IP address is being naughty?
+18.222.86.32 -> Conversations, huge number of packets
+
+Q: What username is attempted first in the brute force attack?
+
+
+Q: What is the first successful URL in the forced browsing attack?
+
+
+Q: What URL did the attacker force the server to fetch using XXE?
+
