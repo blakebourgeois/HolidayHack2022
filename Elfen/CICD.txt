@@ -1,0 +1,79 @@
+via tinsel upatree:
+http://gitlab.flag.net.internal/rings-of-powder/wordpress.flag.net.internal.git
+
+grinchum-land:/home/samways# nmap 172.18.0.0/24
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-12-09 11:58 GMT
+Nmap scan report for 172.18.0.1
+Host is up (0.0000040s latency).
+Not shown: 995 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+2222/tcp open  EtherNetIP-1
+8080/tcp open  http-proxy
+8088/tcp open  radan-http
+MAC Address: 02:42:64:35:43:B2 (Unknown)
+
+Nmap scan report for wordpress-db.local_docker_network (172.18.0.87)
+Host is up (0.0000070s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT     STATE SERVICE
+3306/tcp open  mysql
+MAC Address: 02:42:AC:12:00:57 (Unknown)
+
+Nmap scan report for wordpress.local_docker_network (172.18.0.88)
+Host is up (0.0000070s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 02:42:AC:12:00:58 (Unknown)
+
+Nmap scan report for gitlab.local_docker_network (172.18.0.150)
+Host is up (0.0000070s latency).
+Not shown: 997 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+8181/tcp open  intermapper
+MAC Address: 02:42:AC:12:00:96 (Unknown)
+
+Nmap scan report for grinchum-land.flag.net.internal (172.18.0.99)
+Host is up (0.0000030s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT     STATE SERVICE
+2222/tcp open  EtherNetIP-1
+
+
+git clone http://gitlab.local_docker_network/rings-of-powder/wordpre
+ss.flag.net.internal.git
+
+    big update
+
+commit e19f653bde9ea3de6af21a587e41e7a909db1ca5
+Author: knee-oh <sporx@kringlecon.com>
+Date:   Tue Oct 25 13:42:54 2022 -0700
+
+    whoops
+
+commit abdea0ebb21b156c01f7533cea3b895c26198c98
+Author: knee-oh <sporx@kringlecon.com>
+Date:   Tue Oct 25 13:42:13 2022 -0700
+
+    added assets
+
+commit a7d8f4de0c594a0bbfc963bf64ab8ac8a2f166ca
+Author: knee-oh <sporx@kringlecon.com>
+Date:   Mon Oct 24 17:32:07 2022 -070
+
+
+git show e19f653bde9ea3de6af21a587e41e7a909db1ca5
+------BEGIN OPENSSH PRIVATE KEY-----
+-b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+-QyNTUxOQAAACD+wLHSOxzr5OKYjnMC2Xw6LT6gY9rQ6vTQXU1JG2Qa4gAAAJiQFTn3kBU5
+-9wAAAAtzc2gtZWQyNTUxOQAAACD+wLHSOxzr5OKYjnMC2Xw6LT6gY9rQ6vTQXU1JG2Qa4g
+-AAAEBL0qH+iiHi9Khw6QtD6+DHwFwYc50cwR0HjNsfOVXOcv7AsdI7HOvk4piOcwLZfDot
+-PqBj2tDq9NBdTUkbZBriAAAAFHNwb3J4QGtyaW5nbGVjb24uY29tAQ==
+------END OPENSSH PRIVATE KEY-----
+
+ssh-keygen -f ~/.ssh/id_rsa -p
