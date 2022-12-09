@@ -18,3 +18,21 @@ bind 'O' login off
 bind '}' history
 
 https://serverfault.com/questions/194597/how-to-reload-screenrc-without-restarting-screen
+
+oh, this is like, a thing. totally on the wrong track.
+
+
+grinchum-land:/home/samways# grep Cap /proc/1/status
+CapInh: 0000000000000000
+CapPrm: 0000003fffffffff
+CapEff: 0000003fffffffff
+CapBnd: 0000003fffffffff
+CapAmb: 0000000000000000
+
+full capabilties, privileged mode?
+https://www.starkandwayne.com/blog/the-capable-kernel-an-introduction-to-linux-capabilities/
+
+Escape from a container. Get hints for this challenge from Bow Ninecandle in the Elfen Ring. What hex string appears in the host file /home/jailer/.ssh/jail.key.priv
+
+consistent to /diff
+host_path=`sed -n 's/.*\perdir=\([^,]*\).*/\1/p' /etc/mtab`
