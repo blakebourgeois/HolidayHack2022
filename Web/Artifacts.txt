@@ -2,10 +2,20 @@ Q: What IP address is being naughty?
 18.222.86.32 -> Conversations, huge number of packets
 
 Q: What username is attempted first in the brute force attack?
+0000   0a d0 dc de 9c 2a 0a 8b af 97 71 6e 08 00 45 00   .....*....qn..E.
+0010   00 52 1d d7 40 00 3f 06 80 b5 12 de 56 20 0a 0c   .R..@.?.....V ..
+0020   2a 10 e7 e0 00 50 06 1c 74 7b 23 13 13 52 80 18   *....P..t{#..R..
+0030   01 eb b0 6d 00 00 01 01 08 0a 82 bc 8b b2 e1 be   ...m............
+0040   c7 9c 75 73 65 72 6e 61 6d 65 3d 61 6c 69 63 65   ..username=alice
+0050   26 70 61 73 73 77 6f 72 64 3d 70 68 69 6c 69 70   &password=philip
 
 
 Q: What is the first successful URL in the forced browsing attack?
 
+/proc
+
 
 Q: What URL did the attacker force the server to fetch using XXE?
 
+(string search for entity)
+http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance
