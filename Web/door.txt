@@ -14,3 +14,11 @@ comments on each page issues a todo hinting at what input validation is not pres
 lock 4:
 via burp
 inputTxt=inputTxt=<div style="border: 20px solid white; width:200px; height:50px;">   </div><div style="border: 20px solid blue; width:200px; height400px;">henlo </div>
+
+lock 5: via burp
+inputTxt=<svg width="400" height="400">
+  <circle cx="130" cy="150" r="120" stroke="red" stroke-width="20" fill="blue" />
+</svg>
+
+log 6:
+<font size=30em color=#00ff00>wwwwwwwwwwwww</font> <svg width="400" height="400">   <circle cx="80" cy="100" r="130" stroke="red" stroke-width="70" fill="blue" /> </svg>

